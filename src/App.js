@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import axios from 'axios';
+import { useEffect } from 'react'
 import './App.css';
-
+const mainURL = "https://api.unsplash.com/photos/?client_id="
 function App() {
+  async function callToApi(){
+    const {data} = await axios.get(mainURL+process.env.REACT_APP_API_KEY)
+    console.log(data)
+  }
+
+ 
+  useEffect(()=>{
+    callToApi()
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App"> 
+      <br/>
     </div>
   );
 }
