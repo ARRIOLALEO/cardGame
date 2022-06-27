@@ -21,7 +21,19 @@ function App() {
     images = images.map(img => {
      return {...img,unique: nanoid()}
     })
+    
+    const shuffle = (arr) =>{
+      for(let index = 0 ; index < arr.length ; index++){
+        const positionRandom = Math.floor(Math.random() * arr.length)
+        let temp  = arr[index]
+        arr[index]= arr[positionRandom]
+        arr[positionRandom] = temp
+      }
+    }
+    shuffle(images)
+
     seTphotos(images)
+
   }
 
   useEffect(()=>{
